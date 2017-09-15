@@ -30,11 +30,10 @@ const content = {
   couples: lines.slice(6, lines.length - 1).map(couple => couple.split('\t')),
 };
 
+const formattedDate = content.date.replace(', ', ' - ');
+
 const result = {
-  headline: `${content.age} ${content.rank} ${content.section} - ${content.date.replace(
-    ', ',
-    ' - ',
-  )} Uhr`,
+  headline: `${content.age} ${content.rank} ${content.section} - ${formattedDate} Uhr`,
   couples: content.couples
     .map(couple =>
       [
