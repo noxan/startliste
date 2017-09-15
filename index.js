@@ -34,19 +34,29 @@ const formattedDate = content.date.replace(', ', ' - ');
 
 const result = {
   headline: `${content.age} ${content.rank} ${content.section} - ${formattedDate} Uhr`,
-  couples: content.couples
-    .map(couple =>
-      [
-        couple.slice(0, 1),
-        couple.slice(1, 3).join(' '),
-        '/',
-        couple.slice(3, 5).join(' '),
-        '\t',
-        couple[5],
-      ].join(' '),
-    )
-    .join('\n'),
+  couples: content.couples.map(couple => ({
+    name: [
+      couple.slice(0, 1),
+      couple.slice(1, 3).join(' '),
+      '/',
+      couple.slice(3, 5).join(' '),
+    ].join(' '),
+    club: couple[5],
+  })),
 };
 
-console.log(result.headline);
-console.log(result.couples);
+const output = `<ASCII-MAC>
+<DefineParaStyle:Starter list:Headline=<cSize:18><pBodyAlignment:Center>>
+<DefineParaStyle:Starter list:Content>
+<DefineCharStyle:Starter list:Name=<cSize:14>>
+<DefineCharStyle:Starter list:Club=<cSize:12>>
+<ParaStyle:Starter list:Headline>${result.headline}
+${result.couples
+  .map(
+    couple =>
+      `<ParaStyle:Starter list:Content><CharStyle:Starter list:Name>${couple.name}
+<CharStyle:Starter list:Club>${couple.club}`,
+  )
+  .join('\n')}`;
+
+console.log(output);
