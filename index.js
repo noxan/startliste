@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 const { argv } = process;
 
@@ -59,4 +60,4 @@ ${result.couples
   )
   .join('\n')}`;
 
-console.log(output);
+fs.writeFileSync(path.basename(fileName), output, { encoding: 'ascii' });
