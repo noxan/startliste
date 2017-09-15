@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const iconv = require('iconv-lite');
 
 const { argv } = process;
 
@@ -60,4 +61,6 @@ ${result.couples
   )
   .join('\n')}`;
 
-fs.writeFileSync(path.basename(fileName), output, { encoding: 'ascii' });
+fs.writeFileSync(path.basename(fileName), iconv.encode(output, 'macroman'), {
+  encoding: 'utf-8',
+});
