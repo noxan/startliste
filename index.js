@@ -24,7 +24,9 @@ const content = {
     couples: lines.slice(6, lines.length - 1),
   },
   section: lines[4].split('\t')[3],
-  date: lines[1].split('\t')[2],
+  age: lines[2].split('\t')[3],
+  rank: lines[3].split('\t')[3],
+  date: lines[1].split('\t')[1],
   couples: lines.slice(6, lines.length - 1).map(couple => couple.split('\t')),
 };
 
