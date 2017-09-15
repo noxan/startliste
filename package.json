@@ -6,5 +6,8 @@
   "license": "MIT",
   "devDependencies": {
     "prettier": "^1.7.0"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.4.19"
   }
 }
