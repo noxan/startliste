@@ -31,7 +31,10 @@ const content = {
 };
 
 const result = {
-  headline: `${content.section} - ${content.date}`,
+  headline: `${content.age} ${content.rank} ${content.section} - ${content.date.replace(
+    ', ',
+    ' - ',
+  )} Uhr`,
   couples: content.couples
     .map(couple =>
       [
