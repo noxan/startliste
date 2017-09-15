@@ -13,6 +13,9 @@ console.log(filename);
 
 const content = fs.readFileSync(filename, { encoding: 'utf8' });
 
-const lines = content.replace(/\r/g, '').split('\n');
+const lines = content
+  .replace(/\r/g, '')
+  .split('\n')
+  .filter(line => line);
 
 console.log(lines);
