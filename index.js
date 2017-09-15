@@ -18,8 +18,31 @@ const lines = fileContent
   .split('\n')
   .filter(line => line);
 
-const header = lines.slice(0, 5);
-const couples = lines.slice(6, lines.length - 1);
+const content = {
+  lines: {
+    header: lines.slice(0, 5),
+    couples: lines.slice(6, lines.length - 1),
+  },
+  section: lines[4].split('\t')[3],
+  date: lines[1].split('\t')[2],
+  couples: lines.slice(6, lines.length - 1).map(couple => couple.split('\t')),
+};
 
-console.log(header);
-console.log(couples);
+const result = {
+  headline: `${content.section} - ${content.date}`,
+  couples: content.couples
+    .map(couple =>
+      [
+        couple.slice(0, 1),
+        couple.slice(1, 3).join(' '),
+        '/',
+        couple.slice(3, 5).join(' '),
+        '\t',
+        couple[5],
+      ].join(' '),
+    )
+    .join('\n'),
+};
+
+console.log(result.headline);
+console.log(result.couples);
