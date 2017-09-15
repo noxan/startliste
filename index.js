@@ -18,4 +18,8 @@ const lines = content
   .split('\n')
   .filter(line => line);
 
-console.log(lines);
+const header = lines.slice(0, 5);
+const couples = lines.slice(6, lines.length - 1);
+
+console.log(header);
+console.log(couples);
