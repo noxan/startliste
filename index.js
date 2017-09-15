@@ -7,11 +7,11 @@ if (argv.length < 3) {
   process.exit(1);
 }
 
-const filename = argv[2];
+const fileName = argv[2];
 
-console.log(filename);
+console.log(fileName);
 
-const fileContent = fs.readFileSync(filename, { encoding: 'utf8' });
+const fileContent = fs.readFileSync(fileName, { encoding: 'utf8' });
 
 const lines = fileContent
   .replace(/\r/g, '')
