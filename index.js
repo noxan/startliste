@@ -11,9 +11,9 @@ const filename = argv[2];
 
 console.log(filename);
 
-const content = fs.readFileSync(filename, { encoding: 'utf8' });
+const fileContent = fs.readFileSync(filename, { encoding: 'utf8' });
 
-const lines = content
+const lines = fileContent
   .replace(/\r/g, '')
   .split('\n')
   .filter(line => line);
