@@ -23,13 +23,13 @@ const lines = fileContent
 const content = {
   lines: {
     header: lines.slice(0, 5),
-    couples: lines.slice(6, lines.length - 1),
+    couples: lines.slice(6, lines.length - 1)
   },
   section: lines[4].split('\t')[3],
   age: lines[2].split('\t')[3],
   rank: lines[3].split('\t')[3],
   date: lines[1].split('\t')[1],
-  couples: lines.slice(6, lines.length - 1).map(couple => couple.split('\t')),
+  couples: lines.slice(6, lines.length - 1).map(couple => couple.split('\t'))
 };
 
 const formattedDate = content.date.replace(', ', ' - ');
@@ -41,10 +41,10 @@ const result = {
       couple.slice(0, 1),
       couple.slice(1, 3).join(' '),
       '/',
-      couple.slice(3, 5).join(' '),
+      couple.slice(3, 5).join(' ')
     ].join(' '),
-    club: couple[5],
-  })),
+    club: couple[5]
+  }))
 };
 
 const output = `<ASCII-MAC>
@@ -57,10 +57,10 @@ ${result.couples
   .map(
     couple =>
       `<ParaStyle:Starter list:Content><CharStyle:Starter list:Name>${couple.name}
-<CharStyle:Starter list:Club>${couple.club}`,
+<CharStyle:Starter list:Club>${couple.club}`
   )
   .join('\n')}`;
 
 fs.writeFileSync(path.basename(fileName), iconv.encode(output, 'macroman'), {
-  encoding: 'utf-8',
+  encoding: 'utf-8'
 });
