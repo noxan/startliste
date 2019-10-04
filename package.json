@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Richard <hello@noxan.net>",
   "license": "MIT",
+  "prettier": {
+    "singleQuote": true
+  },
   "devDependencies": {
     "prettier": "^1.7.0"
   },
